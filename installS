@@ -4,9 +4,9 @@
 echo "Starting the SteamOS 3 install process"
 sleep 5
 clear
-echo "digite el nombre del usuario por teclado: "
+echo "Please type your username: "
 
-read usuario
+read username
 
 
 clear
@@ -17,14 +17,14 @@ clear
 echo "Installing SteamOS 3"
 
 sudo pacman -S holoiso-stable/vulkan-intel holoiso-stable/lib32-vulkan-intel mesa lib32-mesa -y
-mkdir /home/${usuario}/Desktop
-sudo cp /etc/holoinstall/steamos-gamemode.desktop /home/${usuario}/Desktop/steamos-gamemode.desktop
-sudo chmod +x /home/${usuario}/Desktop/steamos-gamemode.desktop
-sudo ln -s /usr/share/applications/steam.desktop /home/${usuario}/Desktop/steam.desktop
-sudo chown -R ${usuario}:${usuario} /home/${usuario}/Desktop
+mkdir /home/${username}/Desktop
+sudo cp /etc/holoinstall/steamos-gamemode.desktop /home/${username}/Desktop/steamos-gamemode.desktop
+sudo chmod +x /home/${username}/Desktop/steamos-gamemode.desktop
+sudo ln -s /usr/share/applications/steam.desktop /home/${username}/Desktop/steam.desktop
+sudo chown -R ${username}:${username} /home/${username}/Desktop
 
-sudo usermod -a -G rfkill ${usuario}
-sudo usermod -a -G wheel ${usuario}
+sudo usermod -a -G rfkill ${username}
+sudo usermod -a -G wheel ${username}
 sudo sed -i 's/steamdeck_stable/steamdeck_publicbeta/g' /usr/bin/steam
 clear
 sudo pacman -S flatpak packagekit-qt5 unzip vim -y
@@ -38,7 +38,7 @@ sudo systemctl enable steamos-offload.target opt.mount root.mount srv.mount usr-
 sudo touch /etc/holoiso-oobe
 
 sudo echo "[Autologin]" >> /etc/sddm.conf.d/autologin.conf
-sudo echo "User="${usuario} >> /etc/sddm.conf.d/autologin.conf
+sudo echo "User="${username} >> /etc/sddm.conf.d/autologin.conf
 sudo echo "Session=gamescope-wayland.desktop" >> /etc/sddm.conf.d/autologin.conf
 sudo echo "#Session=plasma.desktop" >> /etc/sddm.conf.d/autologin.conf
 sudo echo "#Relogin=true" >> /etc/sddm.conf.d/autologin.conf
