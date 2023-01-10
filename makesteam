@@ -22,7 +22,7 @@ clear
 echo "Installing pipewire"
 sudo pacman -S pipewire pipewire-{alsa,jack,media-session,pulse}
 clear
-echo "instalando holoiso-main acepta los paquetes por default y modificacion de media-sesion tambien con [s]"
+echo "Installing holoiso-main [s]"
 sleep 3
 sudo pacman -S holoiso-main --overwrite="*"
 sudo cp -r pack/modpac/pacman.conf /etc/
