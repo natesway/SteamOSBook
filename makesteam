@@ -9,9 +9,9 @@ sudo cp -r pack/mirrorlistt /etc/pacman.d/
 sudo cp -r pack/g_wheel /etc/sudoers.d/
 mkdir pacman
 mkdir pacman/mod
-echo "creando copia de seguridad de pacman.conf"
+echo "Backing up the original pacman.conf"
 sudo cp -r /etc/pacman.conf pacman/
-echo "creando copia de seguridad de pacman.conf modificado"
+echo "Copying the modified pacman.conf to the /etc directory"
 sudo cp -r pack/modpac/pacman.conf /etc/
 sudo cp -r /etc/pacman.conf pacman/mod/
 sleep 4
@@ -19,7 +19,7 @@ clear
 echo "desactualizando los paquetes de arch linux"
 sudo pacman -Syyuu --overwrite="*"
 clear
-echo "instalando paquetes de audio"
+echo "Installing pipewire"
 sudo pacman -S pipewire pipewire-{alsa,jack,media-session,pulse}
 clear
 echo "instalando holoiso-main acepta los paquetes por default y modificacion de media-sesion tambien con [s]"
