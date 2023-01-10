@@ -16,7 +16,7 @@ sudo cp -r pack/modpac/pacman.conf /etc/
 sudo cp -r /etc/pacman.conf pacman/mod/
 sleep 4
 clear
-echo "desactualizando los paquetes de arch linux"
+echo "Downgrading arch linux packages"
 sudo pacman -Syyuu --overwrite="*"
 clear
 echo "Installing pipewire"
