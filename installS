@@ -1,7 +1,7 @@
  #!/bin/bash
 
 #pacman -S holoiso-main --overwrite="*"
-echo "iniciando la instalacion de SteamOS 3"
+echo "Starting the SteamOS 3 install process"
 sleep 5
 clear
 echo "digite el nombre del usuario por teclado: "
@@ -14,7 +14,7 @@ sudo pacman -S holoiso-stable/linux-firmware -y
 sudo pacman -S intel-ucode -y
 sudo pacman -S base base-devel linux-neptune linux-neptune-headers -y
 clear
-echo "Instalando SteamOS 3"
+echo "Installing SteamOS 3"
 
 sudo pacman -S holoiso-stable/vulkan-intel holoiso-stable/lib32-vulkan-intel mesa lib32-mesa -y
 mkdir /home/${usuario}/Desktop
