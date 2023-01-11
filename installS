@@ -4,7 +4,6 @@
 echo "Starting the SteamOS 3 install process"
 sleep 5
 clear
-echo "Please type your username: "
 
 read username
 
