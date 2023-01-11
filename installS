@@ -5,8 +5,6 @@ echo "Starting the SteamOS 3 install process"
 sleep 5
 clear
 
-read username
-
 
 clear
 sudo pacman -S holoiso-stable/linux-firmware -y
