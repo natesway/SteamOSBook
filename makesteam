@@ -17,13 +17,13 @@ sudo cp -r /etc/pacman.conf pacman/mod/
 sleep 4
 clear
 echo "Downgrading arch linux packages"
-sudo pacman -Syyuu --overwrite="*"
+sudo pacman -Syyuu --noconfirm --overwrite="*" -y
 clear
 echo "Installing pipewire"
-sudo pacman -S pipewire pipewire-{alsa,jack,media-session,pulse}
+sudo pacman -S --noconfirm pipewire pipewire-{alsa,jack,media-session,pulse} -y
 clear
 echo "Installing holoiso-main [s]"
 sleep 3
-sudo pacman -S holoiso-main --overwrite="*"
+sudo pacman -S --noconfirm holoiso-main --overwrite="*" -y
 sudo cp -r pack/modpac/pacman.conf /etc/
 sudo pacman -Syy
