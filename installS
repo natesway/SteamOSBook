@@ -13,7 +13,7 @@ sudo pacman -S base base-devel linux-neptune linux-neptune-headers -y
 clear
 echo "Installing SteamOS 3"
 
-sudo pacman -S holoiso-stable/vulkan-intel holoiso-stable/lib32-vulkan-intel mesa lib32-mesa -y
+sudo pacman -S --noconfirm holoiso-stable/vulkan-intel holoiso-stable/lib32-vulkan-intel mesa lib32-mesa -y
 mkdir /home/${username}/Desktop
 sudo cp /etc/holoinstall/steamos-gamemode.desktop /home/${username}/Desktop/steamos-gamemode.desktop
 sudo chmod +x /home/${username}/Desktop/steamos-gamemode.desktop
@@ -24,20 +24,14 @@ sudo usermod -a -G rfkill ${username}
 sudo usermod -a -G wheel ${username}
 sudo sed -i 's/steamdeck_stable/steamdeck_publicbeta/g' /usr/bin/steam
 clear
-sudo pacman -S flatpak packagekit-qt5 unzip vim -y
+sudo pacman -S --noconfirm flatpak packagekit-qt5 unzip vim -y
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-sudo pacman -S linux-holoiso linux-holoiso-headers -y
-sudo pacman -S win600-xpad-dkms dkms -y
+sudo pacman -S --noconfirm linux-holoiso linux-holoiso-headers -y
+sudo pacman -S --noconfirm win600-xpad-dkms dkms -y
 sudo systemctl enable cups bluetooth sddm holoiso-reboot-tracker
 sudo systemctl enable sddm NetworkManager systemd-timesyncd cups bluetooth
 sudo systemctl enable powerbutton-chmod && sudo systemctl start powerbutton-chmod
 sudo systemctl enable steamos-offload.target opt.mount root.mount srv.mount usr-lib-debug.mount usr-local.mount var-cache-pacman.mount var-lib-docker.mount var-lib-flatpak.mount var-lib-systemd-coredump.mount var-log.mount var-tmp.mount
 sudo touch /etc/holoiso-oobe
-
-sudo echo "[Autologin]" >> /etc/sddm.conf.d/autologin.conf
-sudo echo "User="${username} >> /etc/sddm.conf.d/autologin.conf
-sudo echo "#Session=gamescope-wayland.desktop" >> /etc/sddm.conf.d/autologin.conf
-sudo echo "Session=plasma.desktop" >> /etc/sddm.conf.d/autologin.conf
-sudo echo "#Relogin=true" >> /etc/sddm.conf.d/autologin.conf
 
 
