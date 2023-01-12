@@ -7,21 +7,14 @@ clear
 
 
 clear
-sudo pacman -S holoiso-stable/linux-firmware -y
-sudo pacman -S intel-ucode -y
-sudo pacman -S base base-devel linux-neptune linux-neptune-headers -y
+sudo pacman -S --noconfirm holoiso-stable/linux-firmware -y
+sudo pacman -S --noconfirm intel-ucode -y
+sudo pacman -S --noconfirm base base-devel linux-neptune linux-neptune-headers -y
 clear
 echo "Installing SteamOS 3"
 
 sudo pacman -S --noconfirm holoiso-stable/vulkan-intel holoiso-stable/lib32-vulkan-intel mesa lib32-mesa -y
-mkdir /home/${username}/Desktop
-sudo cp /etc/holoinstall/steamos-gamemode.desktop /home/${username}/Desktop/steamos-gamemode.desktop
-sudo chmod +x /home/${username}/Desktop/steamos-gamemode.desktop
-sudo ln -s /usr/share/applications/steam.desktop /home/${username}/Desktop/steam.desktop
-sudo chown -R ${username}:${username} /home/${username}/Desktop
 
-sudo usermod -a -G rfkill ${username}
-sudo usermod -a -G wheel ${username}
 sudo sed -i 's/steamdeck_stable/steamdeck_publicbeta/g' /usr/bin/steam
 clear
 sudo pacman -S --noconfirm flatpak packagekit-qt5 unzip vim -y
